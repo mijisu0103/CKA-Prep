@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # How to create a nodePort Service
 # service-definition.yml
 """
