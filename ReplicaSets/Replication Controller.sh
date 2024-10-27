@@ -6,23 +6,23 @@
   apiVersion: v1
   kind: ReplicationControlelr
   metadata:
-	  name: myapp-rc
-	  labels:
-		  app: myapp
-		  type: front-end
+    name: myapp-rc
+    labels:
+      app: myapp
+      type: front-end
   spec:
-	  template:
-		  metadata:
-			  name: myapp-pod
-			  labels:
-				  app: myapp
-			  	type: front-end
-		spec:
-			containers:
-			- name: nginx-controller
-				image: nginx
-				
-		replicas: 3
+    template:
+      metadata:
+        name: myapp-pod
+        labels:
+          app: myapp
+          type: front-end
+      spec:
+        containers:
+        - name: nginx-controller
+          image: nginx
+
+      replicas: 3
   """
 
 # Once the file is ready, run the kubectl create command
