@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # To create a clusterIP service
 # service-definition.yml
 """
