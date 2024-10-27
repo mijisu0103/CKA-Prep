@@ -16,5 +16,5 @@ metadata:
       containers:
       - name: nginx-controller
         image: nginx
-	
+
     replicas: 3
