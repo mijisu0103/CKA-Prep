@@ -6,25 +6,25 @@
     apiVersion: apps/v1 # Replicaset uses apps/v1 unlike replicationcontroller using v1
     kind: ReplicaSet
     metadata:
-	    name: myapp-replicaset
-	    labels:
-		    app: myapp
-		    type: front-end
+      name: myapp-replicaset
+      labels:
+        app: myapp
+        type: front-end
     spec:
-	    template:
-		  metadata:
-			  name: myapp-pod
-			  labels:
-				  app: myapp
-				  type: front-end
-		  spec:
-			  containers:
-			  - name: nginx-container
-				  image: nginx
-	  replicas: 3
-	  selector: # Another major difference to replicationcontroller
-		  matchLabels:
-			type: front-end
+      template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+          containers:
+          - name: nginx-container
+            image: nginx
+      replicas: 3
+      selector: # Another major difference to replicationcontroller
+        matchLabels:
+          type: front-end
     """
 
 # To create a replicaset
@@ -42,25 +42,25 @@ kubectl get pods
     apiVersion: apps/v1 # Replicaset uses apps/v1 unlike replicationcontroller using v1
     kind: ReplicaSet
     metadata:
-	    name: myapp-replicaset
-	    labels:
-		    app: myapp
-		    type: front-end
+      name: myapp-replicaset
+      labels:
+        app: myapp
+        type: front-end
     spec:
-	    template:
-		  metadata:
-			  name: myapp-pod
-			  labels:
-				  app: myapp
-				  type: front-end
-		  spec:
-			  containers:
-			  - name: nginx-container
-				  image: nginx
-	  replicas: 6
-	  selector: # Another major difference to replicationcontroller
-		  matchLabels:
-			type: front-end
+      template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+          containers:
+          - name: nginx-container
+            image: nginx
+      replicas: 6
+      selector: # Another major difference to replicationcontroller
+        matchLabels:
+          type: front-end
     """
 
   # Run the kubectl replace command
