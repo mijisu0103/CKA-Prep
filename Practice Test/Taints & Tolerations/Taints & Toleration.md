@@ -55,7 +55,7 @@ kubectl get pods
 ```bash
 kubectl describe pods
 ```
-```YAML
+```
 Name:             mosquito
 Namespace:        default
 Priority:         0
@@ -164,7 +164,7 @@ kubectl get pods mosquito
 ```bash
 kubectl describe pods mosquito
 ```
-```YAML
+```
 Name:             mosquito
 Namespace:        default
 Priority:         0
