@@ -20,6 +20,33 @@ I was driven by a deep interest in emerging technologies and the role they play 
 
 <br>
 
+# Environment 👩🏻‍💻
+
+<div align="center">
+  KodeKloud
+</div>
+
+<br>
+
+# Stack 🛠️
+<div align="center">
+  <img src="https://img.shields.io/badge/kubernetes-326CE5?&style=flat-square&logo=kubernetes&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/docker-257bd6?style=flat-square&logo=docker&logoColor=white)">&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/YAML-CB171E?&style=flat-square&logo=yaml&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src="https://img.shields.io/badge/Linux-FCC624?&style=flat-square&logo=linux&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
+  
+</div>
+
+<br>
+
+# Repository Structure 🌲
+```bash
+
+```
+
+
+<br>
+
 # Reflection 🪞
 Learning Kubernetes has been incredibly valuable for me in terms of improving both my efficiency and problem-solving skills. The platform automates many complex tasks, like container orchestration, scaling, and load balancing, allowing me to deploy and manage applications much more smoothly. Preparing for the CKA certification has also sharpened my troubleshooting abilities, giving me confidence in handling real-world challenges such as diagnosing and resolving cluster issues. Since the CKA exam is hands-on, it's pushed me to gain practical, applicable skills that will directly benefit my work in real Kubernetes environments.
 
