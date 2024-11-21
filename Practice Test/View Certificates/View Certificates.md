@@ -977,9 +977,13 @@ ls -l /etc/kubernetes/pki/etcd/server* | grep .crt
 crictl ps -a | grep kube-apiserver
 ```
 
-```
-2f32ad8a39991       604f5db92eaa8       About a minute ago   Exited              kube-apiserver            4                   e3ef1f2a7ca10       kube-apiserver-controlplane
-```
+<br>
+
+| CONTAINER ID       | IMAGE ID          | CREATED             | STATUS   | NAME              | ATTEMPTS | LAST STATE        | POD NAME                   |
+|--------------------|-------------------|---------------------|----------|-------------------|----------|-------------------|----------------------------|
+| 2f32ad8a39991      | 604f5db92eaa8     | About a minute ago  | Exited   | kube-apiserver    | 4        | e3ef1f2a7ca10     | kube-apiserver-controlplane |
+
+<br>
 
 ```
 crictl logs --tail=2 2f32ad8a39991  
@@ -1160,6 +1164,11 @@ status: {}
 kubectl -n kube-system get pods | grep kube-apiserver
 ```
 
-```
-kube-apiserver-controlplane            0/1     Running   0             62m
-```
+<br>
+
+| POD NAME                     | READY | STATUS   | RESTARTS | AGE  |
+|------------------------------|-------|----------|----------|------|
+| kube-apiserver-controlplane  | 0/1   | Running  | 0        | 62m  |
+
+
+<br>
