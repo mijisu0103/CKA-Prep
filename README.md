@@ -31,9 +31,9 @@ I was driven by a deep interest in emerging technologies and the role they play 
 # Stack 🛠️
 <div align="center">
   <img src="https://img.shields.io/badge/kubernetes-326CE5?&style=flat-square&logo=kubernetes&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/docker-257bd6?style=flat-square&logo=docker&logoColor=white)">&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;  
   <img src="https://img.shields.io/badge/YAML-CB171E?&style=flat-square&logo=yaml&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://img.shields.io/badge/Linux-FCC624?&style=flat-square&logo=linux&logoColor=white">&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src="https://img.shields.io/badge/Linux-FCC624?&style=flat-square&logo=linux&logoColor=black">&nbsp;&nbsp;&nbsp;&nbsp;
   
 </div>
 
