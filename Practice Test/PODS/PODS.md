@@ -1,6 +1,6 @@
 # Q1: How many ppods exist on the system in the default namespace?  
 
-```bash
+```shell
 kubectl get pods
 # No resources found in default namespace.
 ```
@@ -12,37 +12,35 @@ kubectl get pods
 # Q2: Create a new pod with the nginx image
 
 ## A2: 
-```bash
+```shell
 kubectl run nginx --image=nginx
 ```
 
 <br>
 
 # Q3: How many pods are created now?
-```bash
+```shell
 kubectl get pods
 ```
 
-
-| NAME           | READY | STATUS  | RESTARTS | AGE    |
-|----------------|-------|---------|----------|--------|
-| newpods-2qvc5  | 1/1   | Running | 0        | 6m59s  |
-| newpods-cwv62  | 1/1   | Running | 0        | 6m59s  |
-| newpods-twfkm  | 1/1   | Running | 0        | 6m59s  |
-| nginx          | 1/1   | Running | 0        | 68s    |
-
-
+```shell
+NAME            READY   STATUS    RESTARTS   AGE
+newpods-2qvc5   1/1     Running   0          6m59s
+newpods-cwv62   1/1     Running   0          6m59s
+newpods-twfkm   1/1     Running   0          6m59s
+nginx           1/1     Running   0          68s
+```
 
 ## A3: 4
 
 <br>
 
 # Q4: What is the image used to create the new pods?
-```bash
+```shell
 kubectl describe pods newpods
 ```
 
-```
+```YAML
 Name:             newpods-2qvc5
 Namespace:        default
 Priority:         0
@@ -219,46 +217,49 @@ Events:
 <br>
 
 # Q5: Which nodes are these pods placed on?
-```bash
+```shell
 kubectl describe pod newpoads-<id>
 ```
 Then check the node field <br>
+
+```shell
 Node:    controlplane/192.26.242.9
+```
 
 Or:
-```bash
+```shell
 kubectl get pods -o wide
 ```
-| NAME           | READY | STATUS  | RESTARTS | AGE     | IP          | NODE          | NOMINATED NODE | READINESS GATES |
-|----------------|-------|---------|----------|---------|-------------|---------------|----------------|------------------|
-| newpods-2qvc5  | 1/1   | Running | 0        | 13m     | 10.42.0.11  | controlplane   | &lt;none&gt;  | &lt;none&gt;     |
-| newpods-cwv62  | 1/1   | Running | 0        | 13m     | 10.42.0.9   | controlplane   | &lt;none&gt;  | &lt;none&gt;     |
-| newpods-twfkm  | 1/1   | Running | 0        | 13m     | 10.42.0.10  | controlplane   | &lt;none&gt;  | &lt;none&gt;     |
-| nginx          | 1/1   | Running | 0        | 7m52s   | 10.42.0.12  | controlplane   |&lt;none&gt;   | &lt;none&gt;     |
-
+```shell
+NAME            READY   STATUS    RESTARTS   AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+newpods-2qvc5   1/1     Running   0          13m     10.42.0.11   controlplane   <none>           <none>
+newpods-cwv62   1/1     Running   0          13m     10.42.0.9    controlplane   <none>           <none>
+newpods-twfkm   1/1     Running   0          13m     10.42.0.10   controlplane   <none>           <none>
+nginx           1/1     Running   0          7m52s   10.42.0.12   controlplane   <none>           <none>
+``` 
 
 ## A5: controlplane
 
 <br>
 
 # Q6: How many containers are part of the pod webapp?
-```bash
+```shell
 kubectl get pod webapp
 ```
-| NAME   | READY | STATUS        | RESTARTS | AGE  |
-|--------|-------|---------------|----------|------|
-| webapp | 1/2   | ErrImagePull  | 0        | 65s  |
-
+```shell
+NAME     READY   STATUS         RESTARTS   AGE
+webapp   1/2     ErrImagePull   0          65s
+```
 
 ## A6: 2
 
 <br>
 
 # Q7: What images are used in the new webapp pod?
-```bash
+```shell
 kubectl describe pod webapp
 ```
-```
+```YAML
 Name:             webapp
 Namespace:        default
 Priority:         0
@@ -338,10 +339,10 @@ Check image field under Containers section == Can see NGINX and AGENTX
 <br>
 
 # Q8: What is the state of the container agentx in the pod webapp?
-```bash
+```shell
 kubectl describe pod webapp
 ```
-```
+```YAML
 Name:             webapp
 Namespace:        default
 Priority:         0
@@ -418,10 +419,10 @@ Events:
 <br>
 
 # Q9: Why do you think the container agentx in the pod webapp is in error?
-```bash
+```shell
 kubectl describe pod webapp
 ```
-```
+```YAML
 Name:             webapp
 Namespace:        default
 Priority:         0
@@ -494,7 +495,7 @@ Events:
   Normal   BackOff    3m26s (x21 over 8m31s)  kubelet            Back-off pulling image "agentx"
 ```
 
-```bash
+```shell
 failed to pull and unpack image "docker.io/library/agentx:latest": failed to resolve reference "docker.io/library/agentx:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
 ```
 
@@ -503,17 +504,17 @@ failed to pull and unpack image "docker.io/library/agentx:latest": failed to res
 <br>
 
 # Q10: What does the READY column in the output of the kubectl get pods command indicate?
-```bash
+```shell
 kubectl get pods
 ```
-| NAME          | READY | STATUS             | RESTARTS        | AGE   |
-|---------------|-------|--------------------|------------------|-------|
-| newpods-2qvc5 | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| newpods-cwv62 | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| newpods-twfkm | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| nginx         | 1/1   | Running            | 0                | 23m   |
-| webapp        | 1/2   | ImagePullBackOff   | 0                | 10m   |
-
+```shell
+NAME            READY   STATUS             RESTARTS      AGE
+newpods-2qvc5   1/1     Running            1 (12m ago)   29m
+newpods-cwv62   1/1     Running            1 (12m ago)   29m
+newpods-twfkm   1/1     Running            1 (12m ago)   29m
+nginx           1/1     Running            0             23m
+webapp          1/2     ImagePullBackOff   0             10m
+```
 
 ## A10: Running Containers in POD / Total Containers in POD
 
@@ -522,25 +523,24 @@ kubectl get pods
 # Q11: Delete the webapp Pod
 
 ## A11:
-```bash
+```shell
 kubectl delete pod webapp
 kubectl get pods
 ```
-| NAME          | READY | STATUS             | RESTARTS        | AGE   |
-|---------------|-------|--------------------|------------------|-------|
-| newpods-2qvc5 | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| newpods-cwv62 | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| newpods-twfkm | 1/1   | Running            | 1 (12m ago)      | 29m   |
-| nginx         | 1/1   | Running            | 0                | 23m   |
-| webapp        | 1/2   | ImagePullBackOff   | 0                | 10m   |
-
+```shell
+NAME            READY   STATUS    RESTARTS      AGE
+newpods-2qvc5   1/1     Running   1 (14m ago)   31m
+newpods-cwv62   1/1     Running   1 (14m ago)   31m
+newpods-twfkm   1/1     Running   1 (14m ago)   31m
+nginx           1/1     Running   0             25m
+```
 <br>
 
 # Q12: Create a new pod with the name redis and the image redis123
 ## Use a pod-definition YAML file
 
 ## A12: 
-```bash
+```shell
 kubectl run redis --image=redis123 --dry-run=client -o yaml > redis-definition.yaml
 kubectl create -f redis-definition.yaml
 kubectl get pods
@@ -549,19 +549,17 @@ kubectl get pods
 
 # Q13: Now change the image on this pod to redis
 ## A13:
-```bash
+```shell
 kubectl edit pod redis
 ```
 <br>
 
 Press 'i' on the keyboard to enter INSERT mode then change image from redis123 to redis as shown below
-```bash
-# Please edit the object below. Lines beginning 
-with a '#' will be ignored,
-# and an empty file will abort the edit. If an e
-rror occurs while saving this file will be
+```YAML
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
-#
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -599,7 +597,7 @@ spec:
 <br>
 
 If kubectl edit command does not work to reflect the changes, then try to change it through vi editor:
-```bash
+```shell
 vi redis-definition.yaml
 ```
 ```YAML
@@ -619,22 +617,25 @@ spec:
   restartPolicy: Always
 status: {}
 ```
+
 <br>
 
 Press ESC key then type :wq to save yaml file and exit the editor
-```bash
+```shell
 kubectl apply -f redis-definition.yaml
 ```
 <br>
 
 Check pod running state:
-```bash
+```shell
 kubectl get pod redis
 ```
-| NAME   | READY | STATUS  | RESTARTS        | AGE  |
-|--------|-------|---------|------------------|------|
-| redis  | 1/1   | Running | 6 (4m5s ago)     | 14m  |
 
+```shell
+NAME    READY   STATUS    RESTARTS       AGE
+redis   1/1     Running   6 (4m5s ago)   14m
+```
 
+<br>
 
 
